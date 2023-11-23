@@ -1,10 +1,43 @@
 //JS code for ToDO App
 
 var listOfActivities = [];
+function addActivityToList(activity) {
+ listOfActivities.push(activity);
+}
+
+function deleteActivityFromList(activity) {
+ var index = listOfActivities.indexOf(activity);
+ if (index !== -1) {
+    listOfActivities.splice(index, 1);
+ }
+}
+
+function editActivity(activity, updatedActivity) {
+ var index = listOfActivities.indexOf(activity);
+ if (index !== -1) {
+    listOfActivities[index] = updatedActivity;
+ }
+}
+
+// example usage:
+
+addActivityToList('Learn JS');
+console.log(listOfActivities);
+
+deleteActivityFromList('Learn JS');
+console.log(listOfActivities);
+
+editActivity('Practice JS', 'Master JS');
+console.log(listOfActivities);
 
 // Create an array named list to store our to-do activities
 
+var list = [];
 var input = document.getElementById("input");
+
+var activity = input.value;
+list.push(activity);
+
 
 // Create a DOM variable  named input to get the to-do activities added from HTML form
 
@@ -56,7 +89,7 @@ function showList() {
 function deleteItem(i) {
   // Using splice array operations to remove one item at specified index
   listOfActivities.splice(i, 1);
-  // Display the todo list
+  // Display the to-do list
   showList();
 }
 
